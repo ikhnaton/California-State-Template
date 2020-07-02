@@ -1,23 +1,93 @@
 {
-  "name": "cagov-template-v5.5",
+  "name": "cagov-template-v5.5-react",
   "version": "5.5.16",
-  "description": "CA State Template v5.5",
+  "description": "CA State Template v5.5 for React",
+  "scripts": {
+    "build": "node_modules/.bin/webpack --config scripts/webpack.prod.config.js",
+    "start": "node dist/backend.js",
+    "dev": "node_modules/.bin/webpack-dev-server --config scripts/webpack.config.js --host 0.0.0.0",
+    "debug": "node_modules/.bin/webpack-dev-server --config scripts/webpack.config.js",
+    "devall": "node_modules/.bin/webpack-dev-server --config scripts/webpack.config.js --host 0.0.0.0",
+    "lint": "eslint --ext .jsx --ext .js ./src",
+    "test": "jest",
+    "test:watch": "jest --watchAll"
+  },
+  "babel": {
+    "presets": [
+      [
+        "@babel/preset-env",
+        {
+          "targets": {
+            "node": 12
+          }
+        }
+      ],
+      "@babel/preset-react"
+    ]
+  },
+  "jest": {
+    "collectCoverage": true,
+    "verbose": true,
+    "testURL": "http://localhost",
+    "moduleNameMapper": {
+      "\\.less$": "identity-obj-proxy",
+      "^common(.*)$": "<rootDir>/src/common$1",
+      "^modules(.*)$": "<rootDir>/src/modules$1",
+      "^assets(.*)$": "<rootDir>/src/assets$1",
+      "^root(.*)$": "<rootDir>/src$1"
+    }
+  },
+  "engines": {
+    "node": ">=12.16.1"
+  },
   "devDependencies": {
-    "gulp": "^3.9.1",
-    "gulp-autoprefixer": "^3.1.1",
-    "gulp-coffee": "latest",
-    "gulp-concat": "^2.6.1",
-    "gulp-connect": "latest",
-    "gulp-csso": "^2.0.0",
-    "gulp-header": "^2.0.5",
-    "gulp-htmlmin": "^3.0.0",
-    "gulp-install": "^1.1.0",
-    "gulp-sass": "^4.0.1",
-    "gulp-uglify": "^3.0.0",
-    "gulp-util": "latest",
-    "run-sequence": "^1.2.2"
+    "@babel/preset-env": "^7.9.5",
+    "@babel/preset-react": "^7.9.4",
+    "@testing-library/react": "^10.0.3",
+    "@types/react": "^16.9.41",
+    "@typescript-eslint/eslint-plugin": "^3.4.0",
+    "@typescript-eslint/parser": "^3.4.0",
+    "babel-eslint": "^10.1.0",
+    "babel-jest": "^26.1.0",
+    "babel-loader": "^8.1.0",
+    "bufferutil": "^4.0.1",
+    "canvas": "^2.6.1",
+    "concurrently": "^5.1.0",
+    "copy-webpack-plugin": "^6.0.2",
+    "css-loader": "^3.5.2",
+    "eslint": "^7.3.1",
+    "eslint-loader": "^4.0.0",
+    "eslint-plugin-react": "^7.19.0",
+    "eslint-plugin-sonarjs": "^0.5.0",
+    "file-loader": "^6.0.0",
+    "identity-obj-proxy": "^3.0.0",
+    "jest": "^26.1.0",
+    "node-sass": "^4.14.1",
+    "nodemon": "^2.0.3",
+    "sass-loader": "^9.0.0",
+    "style-loader": "^1.1.4",
+    "ts-loader": "^7.0.5",
+    "typescript": "^3.9.5",
+    "utf-8-validate": "^5.0.2",
+    "webpack": "^4.42.1",
+    "webpack-cli": "^3.3.11",
+    "webpack-dev-server": "^3.10.3",
+    "webpack-node-externals": "^1.7.2"
   },
   "dependencies": {
-    "gulp-inject-version": "^1.0.1"
+    "@types/react-router-dom": "^5.1.5",
+    "axios": "^0.19.2",
+    "body-parser": "^1.19.0",
+    "carbon-components": "^10.14.0",
+    "carbon-components-react": "^7.14.0",
+    "carbon-icons": "^7.0.7",
+    "configuration-master": "^0.1.6",
+    "date-fns": "^2.14.0",
+    "lodash": "^4.17.15",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-router": "^5.2.0",
+    "react-router-dom": "^5.2.0",
+    "winston": "^3.3.3"
   }
 }
