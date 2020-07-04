@@ -1,8 +1,8 @@
 /**
- * CA State Template v5.5 -  @version v5.5.16 -  6/4/2020 
+ * CA State Template v5.5 -  @version v5.5.16 -  6/4/2020
   STYLES COMPILED FROM SOURCE (SCSS) DO NOT MODIFY */
 /* -----------------------------------------
-   BOOTSTRAP v4.5.0 - /source/scss/bootstrap/ 
+   BOOTSTRAP v4.5.0 - /source/scss/bootstrap/
    https://getbootstrap.com/
 ----------------------------------------- */
 :root {
@@ -11083,7 +11083,7 @@ a {
 }
 
 a:hover {
-  color: #02374e;
+  color: #1eb0ef;
 }
 
 .featured-narrative {
@@ -12780,7 +12780,7 @@ button.gsc-search-button {
 }
 
 /* -----------------------------------------
-GOOGLE CUSTOM SEARCH CUSTOMIZATION OVERRIDES 
+GOOGLE CUSTOM SEARCH CUSTOMIZATION OVERRIDES
 /source/scss/cagov/search.scss
 ----------------------------------------- */
 .gsc-control-searchbox-only form.gsc-search-box {
@@ -15164,7 +15164,7 @@ pre {
 
 /* -----------------------------------------
    SPACING
-   Converted from Scss 
+   Converted from Scss
    http://v4-alpha.getbootstrap.com/components/utilities/
    /source/scss/cagov/spacing.scss
 ----------------------------------------- */
@@ -20113,7 +20113,7 @@ blockquote.blockquote-reverse .small:after {
    BUTTONS
    /source/scss/cagov/button.scss
 ----------------------------------------- */
-/* 
+/*
     NOTE: This might make more sence later to be moved to the color schemes
 */
 /* .btn-primary {
@@ -20121,7 +20121,7 @@ blockquote.blockquote-reverse .small:after {
     background:none;
     color:#fff;
     transition:all 0.5s;
-    
+
     &:hover, &:focus {
         .rgba (#fff, .2);
         background-color: $rgba;
@@ -21735,7 +21735,7 @@ div[data-state="open"] .title {
   margin-bottom: 0;
 }
 
-/* CA GOV Template hides the carousel by default. 
+/* CA GOV Template hides the carousel by default.
    The following lines are to unhide it and make it look pretty */
 @media (max-width: 767px) {
   .header-slideshow-banner {

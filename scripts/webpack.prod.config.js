@@ -59,29 +59,38 @@ const baseConfig = {
 				// 	"print-config": true
 				// }
 			},
-			// {
-			// 	test: [
-			// 		/\.js$/,
-			// 		/\.jsx$/,
-			// 		/\.graphql$/
-			// 	],
-			// 	exclude: [
-			// 		/node_modules/,
-			// 		/lib/,
-			// 		/vcap.local.js/
-			// 	],
-			// 	loader: "babel-loader"
-			// },
 			{
 				test: [
 					/\.js$/,
 					/\.jsx$/,
 					/\.ts$/,
-					/\.tsx$/
+					/\.tsx$/,
+					/\.graphql$/
 				],
-				exclude: [/node_modules/],
-				use: 'ts-loader'
+				exclude: [
+					/node_modules/,
+					/lib/,
+					/vcap.local.js/
+				],
+				use: [
+					{
+						loader: 'babel-loader'
+					},
+					{
+						loader: 'ts-loader'
+					}
+				]
 			},
+			// {
+			// 	test: [
+			// 		/\.js$/,
+			// 		/\.jsx$/,
+			// 		/\.ts$/,
+			// 		/\.tsx$/
+			// 	],
+			// 	exclude: [/node_modules/],
+			// 	use: 'ts-loader'
+			// },
 			{
 				type: 'javascript/auto',
 				test: /\.mjs$/,

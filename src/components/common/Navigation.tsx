@@ -1,5 +1,19 @@
-import React from 'react';
+import React, { FunctionComponent } from 'react';
 import { Search } from './Search';
+
+type buttonType = "a" | "button";
+type props = { url: string, title: string, icon: string, target?: string, type?: buttonType };
+const NavItem: FunctionComponent<props> = ({ url, title, icon, target = "_self", type = "a", children }) =>
+{
+	return (type === "a")
+		? <li className="nav-item">
+			<a href={url} className="first-level-link" target={target}><span className={`ca-gov-icon-${icon}`} aria-hidden="true"></span>{title}</a>
+			{children}
+		</li>
+		: <li className="nav-item" id={`nav-item-${icon}`}>
+			<button className="first-level-link" ><span className={`ca-gov-icon-${icon}`} aria-hidden="true"></span>{title}</button>
+		</li>;
+};
 
 export const Navigation: React.FunctionComponent = () =>
 {
@@ -7,8 +21,7 @@ export const Navigation: React.FunctionComponent = () =>
 		<div className="navigation-search">
 			<nav id="navigation" className="main-navigation megadropdown auto-highlight">
 				<ul id="nav_list" className="top-level-nav">
-					<li className="nav-item">
-						<a href="/sample/" className="first-level-link"><span className="ca-gov-icon-gears"></span>Examples</a>
+					<NavItem url="/sample/" title="Examples" icon="gears">
 						<div className="sub-nav">
 							<div className="second-level-nav flex">
 								<a href="/sample/" className="second-level-link">
@@ -48,10 +61,9 @@ export const Navigation: React.FunctionComponent = () =>
 								</a>
 							</div>
 						</div>
-					</li>
+					</NavItem>
 
-					<li className="nav-item">
-						<a href="/about.html" className="first-level-link"><span className="ca-gov-icon-info-bubble" aria-hidden="true"></span>About</a>
+					<NavItem url="/about.html" title="About" icon="info-bubble">
 						<div className="sub-nav">
 							<div className="second-level-nav flex">
 								<a href="/about.html" className="second-level-link">
@@ -94,11 +106,9 @@ export const Navigation: React.FunctionComponent = () =>
 								</a>
 							</div>
 						</div>
-					</li>
+					</NavItem>
 
-
-					<li className="nav-item">
-						<a href="/getting-started.html" className="first-level-link"><span className="ca-gov-icon-gear" aria-hidden="true"></span>Getting Started</a>
+					<NavItem url="/getting-started.html" title="Getting Started" icon="gear">
 						<div className="sub-nav">
 							<div className="second-level-nav flex with-border">
 								<a href="/Getting-started.html" className="second-level-link">
@@ -147,20 +157,11 @@ export const Navigation: React.FunctionComponent = () =>
 								</a>
 							</div>
 						</div>
-					</li>
-					<li className="nav-item">
-						<a href="/structure.html" className="first-level-link"><span className="ca-gov-icon-flowchart" aria-hidden="true"></span>Structure</a>
-					</li>
-					<li className="nav-item">
-						<a href="https://webstandards.ca.gov/" className="first-level-link" target="_blank"><span className="ca-gov-icon-state" aria-hidden="true"></span>Web Standards</a>
-					</li>
-					<li className="nav-item">
-						<a href="https://github.com/Office-of-Digital-Innovation" target="_blank" className="first-level-link"><span className="ca-gov-icon-download" aria-hidden="true"></span>Download</a>
-					</li>
-
-					<li className="nav-item" id="nav-item-search">
-						<button className="first-level-link"><span className="ca-gov-icon-search" aria-hidden="true"></span>Search</button>
-					</li>
+					</NavItem>
+					<NavItem url="/structure.html" title="Structure" icon="flowchart" />
+					<NavItem url="https://webstandards.ca.gov/" title="Web Standards" icon="state" target="_blank"/>
+					<NavItem url="https://github.com/Office-of-Digital-Innovation" title="Download" icon="download" target="_blank"/>
+					<NavItem url="/structure.html" title="Search" icon="search" target="_blank" type="button"/>
 				</ul>
 			</nav>
 			<Search/>

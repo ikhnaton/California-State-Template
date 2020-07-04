@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef, useEffect } from 'react';
 import { UtilityHeader } from './UtilityHeader';
 import { SettingsBar } from './SettingsBar';
 import { Branding } from './Branding';
@@ -7,17 +7,31 @@ import { Navigation } from './Navigation';
 
 export const Header: React.FunctionComponent = () =>
 {
-	return (
-		<header role="banner" id="header" className="global-header fixed">
-			<div id="skip-to-content"><a href="#main-content">Skip to Main Content</a></div>
-			<UtilityHeader />
-			<SettingsBar />
-			<Branding fullWidth={false} icons={false}/>
-			<MobileNavigation/>
-			<Navigation/>
+	const divRef = useRef();
+	const headerRef = useRef();
+	useEffect(() =>
+	{
+		if (divRef.current)
+		{
+			const curDiv: HTMLElement = divRef.current;
+			const curHead: HTMLElement = headerRef.current;
+			curDiv.style.height = `${curHead.clientHeight}px`;
+		}
+	}, []);
 
-			<div className="header-decoration"></div>
-		</header>
+	return (
+		<div ref={divRef}>
+			<header role="banner" id="header" className="global-header fixed" ref={headerRef}>
+				<div id="skip-to-content"><a href="#main-content">Skip to Main Content</a></div>
+				<UtilityHeader />
+				<SettingsBar />
+				<Branding fullWidth={false} icons={false}/>
+				<MobileNavigation/>
+				<Navigation/>
+
+				<div className="header-decoration"></div>
+			</header>
+		</div>
 
 	);
 };

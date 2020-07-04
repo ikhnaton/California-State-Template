@@ -1,5 +1,5 @@
 /**
- * CA State Template v5.5 -  @version v5.5.16 -  6/4/2020 
+ * CA State Template v5.5 -  @version v5.5.16 -  6/4/2020
   STYLES COMPILED FROM SOURCE (SCSS) DO NOT MODIFY */
 /* -----------------------------------------
    OCEANSIDE
@@ -2918,6 +2918,7 @@ input[type="radio"]:checked + * i {
 
 .utility-header a:hover, .utility-header a:focus, .utility-header a.hovered {
   color: #fff0cf;
+  color: rgb(253, 184, 30);
 }
 
 .utility-header ul li {

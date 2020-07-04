@@ -9,12 +9,8 @@ const App = () =>
 {
 	return (
 		<BrowserRouter>
-			<Header/>
-			<div className="fix">
-			</div>
-			<div className="blue">
-				5 + 7 = <TestComponent num1={5} num2={7} />
-			</div>
+			<Header />
+			5 + 7 = <TestComponent num1={5} num2={7} />
 		</BrowserRouter>
 	);
 };
